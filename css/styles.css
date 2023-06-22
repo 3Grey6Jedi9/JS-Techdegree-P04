@@ -108,6 +108,19 @@ button {
 }
 
 
+.character {
+  font-size: var(--font-size-medium);
+  height: 65px;
+  width: 15px;
+  padding: 20px 1px 0 1px;
+  margin-right: 2px;
+  color: transparent;
+  background: var(--color-neutral-light);
+  border-radius: 5px;
+}
+
+
+
 
 .show {
   color: #fff;
