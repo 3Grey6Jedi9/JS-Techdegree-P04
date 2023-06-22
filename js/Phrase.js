@@ -2,90 +2,55 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
-// Defining useful variables
 const discomposedPhrase = document.querySelector('#phrase ul');
 const patterSpace = /\s/g;
 const patterRest = /[^a-z\s]/g;
 const patterLetter = /[a-z]/g;
 
-
 class Phrase {
+  constructor(phrase) {
+    this.phrase = phrase.toLowerCase();
+  }
 
-    constructor(phrase) {
+  addPhraseToDisplay() {
+    for (let i = 0; i < this.phrase.length; i++) {
+      const letter = this.phrase[i];
+      const li = document.createElement('li');
 
-        this.phrase = phrase.toLowerCase();
+      if (patterSpace.test(letter)) {
+        li.className = 'space';
+        li.textContent = ' ';
+      } else if (patterRest.test(letter)) {
+        li.className = 'character';
+        li.textContent = letter;
+      } else if (patterLetter.test(letter)) {
+        li.className = `hide letter ${letter}`;
+        li.textContent = letter;
+      }
 
+      discomposedPhrase.appendChild(li);
     }
+  }
 
-    addPhraseToDisplay() {
+  checkLetter(letter, guess) {
+    return letter === guess;
+  }
 
-        for (let i = 0; i < this.phrase.length; i++) {
-
-            const letter = this.phrase[i];
-            const li = document.createElement('li');
-            li.textContent = `${this.showMatchedLetter(letter)}`;
-            discomposedPhrase.appendChild(li);
-
+  showMatchedLetter(guess) {
+    const lis = discomposedPhrase.children;
+    for (let i = 0; i < lis.length; i++) {
+      const li = lis[i];
+      if (li.classList.contains('letter')) {
+        const letter = li.textContent;
+        if (this.checkLetter(letter, guess)) {
+          li.classList.remove('hide');
         }
-
-
+      }
     }
-
-    checkLetter(letter, guess) {
-
-        if (letter === guess) {
-
-            return true;
-
-
-        } else {
-
-            return false;
-
-
-        }
-
-
-        }
-
-
-    }
-
-    showMatchedLetter(letter) {
-
-        if (patterSpace.test(letter)){
-
-            li.classList.add('space');
-            li.style.display = 'block';
-
-
-        } else if (patterRest.test(letter)) {
-
-
-            li.style.display = 'block';
-
-        } else if (patterLetter.test(letter)){
-
-            if (this.checkLetter(letter, guess)){
-
-                li.classList.add('letter');
-                li.style.display = 'block';
-
-
-            } else if (!this.checkLetter(letter, guess)) {
-
-                li.classList.add('letter');
-                li.style.display = 'none';
-
-
-            }
-
-
-        }
-
-    }
-
+  }
 }
+
+
 
 
 
