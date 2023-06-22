@@ -35,7 +35,17 @@ class Phrase {
 
         for (let i = 0; i<this.phrase.length; i++) {
 
+            if (letterGuessed === this.phrase[i] && patterLetter.test(letterGuessed)) {
 
+                    return true;
+
+
+            } else {
+
+                return false;
+
+
+            }
 
 
 
@@ -48,6 +58,13 @@ class Phrase {
 
     showMatchedLetter(letter){
 
+        for (let i = 0; i < this.phrase.length; i++) {
+
+
+            if () // Check if it is an space and a non letter
+
+        }
+
         if (this.checkLetter(letter)) {
 
         li.classList.add('letter');
@@ -58,16 +75,6 @@ class Phrase {
 
                 li.style.display = 'none';
 
-
-        } else if (this.checkLetter(letter) === 'space') { // In case this is an space
-
-            li.classList.add('space');
-
-            li.style.display = 'block';
-
-        } else {
-
-            li.style.display = 'block';
 
         }
 
