@@ -31,55 +31,60 @@ class Phrase {
 
     }
 
-    checkLetter(letterGuessed) {
+    checkLetter(letter, guess) {
 
-        for (let i = 0; i<this.phrase.length; i++) {
+        if (letter === guess) {
 
-            if (letterGuessed === this.phrase[i] && patterLetter.test(letterGuessed)) {
-
-                    return true;
+            return true;
 
 
-            } else {
+        } else {
 
-                return false;
+            return false;
+
+
+        }
+
+
+        }
+
+
+    }
+
+    showMatchedLetter(letter) {
+
+        if (patterSpace.test(letter)){
+
+            li.classList.add('space');
+            li.style.display = 'block';
+
+
+        } else if (patterRest.test(letter)) {
+
+
+            li.style.display = 'block';
+
+        } else if (patterLetter.test(letter)){
+
+            if (this.checkLetter(letter, guess)){
+
+                li.classList.add('letter');
+                li.style.display = 'block';
+
+
+            } else if (!this.checkLetter(letter, guess)) {
+
+                li.classList.add('letter');
+                li.style.display = 'none';
 
 
             }
 
 
-
         }
-
-
-
 
     }
 
-    showMatchedLetter(letter){
-
-        for (let i = 0; i < this.phrase.length; i++) {
-
-
-            if () // Check if it is an space and a non letter
-
-        }
-
-        if (this.checkLetter(letter)) {
-
-        li.classList.add('letter');
-
-        li.style.display = 'block';
-
-        } else if (!this.checkLetter(letter)) {
-
-                li.style.display = 'none';
-
-
-        }
-
-
-    }
 }
 
 
