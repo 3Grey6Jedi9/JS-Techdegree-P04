@@ -16,7 +16,9 @@ class Game {
 
     getRandomPhrase(){
 
+        let index = Math.floor(Math.random()*this.phrases.length);
 
+        return this.phrases[index];
 
 
     }
