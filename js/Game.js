@@ -5,6 +5,8 @@
 
 const keyButtons = document.querySelectorAll('#qwerty .keyrow .key');
 let letterButton;
+const overlaySreen = document.getElementById('overlay');
+const gameOverMessage = document.getElementById('game-over-message');
 
 class Game {
 
@@ -104,16 +106,29 @@ class Game {
 
     checkForWin(){
 
-
-
+    // Checks if the phrase has been guessed. So if it is reveal.
 
     }
 
 
     gameOver(){
 
+        overlaySreen.style.display = 'block';
+
+        if (this.missed === 5) {
+
+            gameOverMessage.textContent = 'You lost! Try again.';
+            overlayScreen.classList.remove('start');
+            overlayScreen.classList.add('lose');
 
 
+        } else {
+
+                gameOverMessage.textContent = 'Congratulations! You won! ';
+                overlayScreen.classList.remove('start');
+                overlayScreen.classList.add('win');
+
+        }
 
     }
 
@@ -121,7 +136,7 @@ class Game {
 
     startGame(){
 
-        // Hides the start screen overlay
+        overlayScreen.style.display = 'none';
 
         this.activePhrase = getRandomPhrase();
 
