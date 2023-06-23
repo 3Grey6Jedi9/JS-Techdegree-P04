@@ -134,17 +134,16 @@ class Game {
 
 
 
-    startGame(){
+    startGame() {
 
-        overlayScreen.style.display = 'none';
+    overlayScreen.style.display = 'none';
 
-        this.activePhrase = getRandomPhrase();
+    this.activePhrase = getRandomPhrase();
 
-        addPhraseToDisplay(this.activePhrase);
+    addPhraseToDisplay(this.activePhrase);
 
 
-
-    }
+ }
 
 
 
