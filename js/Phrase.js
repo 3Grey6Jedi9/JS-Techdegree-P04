@@ -4,7 +4,6 @@
 
 const discomposedPhrase = document.querySelector('#phrase ul');
 const patternSpace = /\s/g;
-const patternRest = /[^a-z\s]/g;
 const patternLetter = /[a-z]/g;
 
 class Phrase {
@@ -20,9 +19,6 @@ class Phrase {
       if (patternSpace.test(letter)) {
         li.className = 'space';
         li.textContent = ' ';
-      } else if (patternRest.test(letter)) {
-        li.className = 'character';
-        li.textContent = letter;
       } else if (patternLetter.test(letter)) {
         li.className = 'hide letter';
         li.textContent = letter;

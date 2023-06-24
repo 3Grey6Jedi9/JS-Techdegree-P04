@@ -3,7 +3,7 @@
  * app.js */
 
 
-let phrases = ['Seek truth always.', 'Embrace the journey.', 'Choose love daily.', 'Find inner peace.', 'Live with purpose.']
+let phrases = ['Seek truth always', 'Embrace the journey', 'Choose love daily', 'Find inner peace', 'Live with purpose']
 
 
 const startGameButton = document.getElementById('btn__reset');
