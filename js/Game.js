@@ -8,12 +8,22 @@ let letterButton;
 const overlayScreen = document.getElementById('overlay');
 const gameOverMessage = document.getElementById('game-over-message');
 
+
+
 class Game {
   constructor(missed = 0, phrases, activePhrase = null) {
     this.missed = missed;
     this.phrases = phrases;
     this.activePhrase = activePhrase;
   }
+
+  startGame() {
+    overlayScreen.style.display = 'none';
+    this.activePhrase = this.getRandomPhrase();
+    this.currentPhrase = new Phrase(this.activePhrase);
+    this.currentPhrase.addPhraseToDisplay();
+  }
+
 
   getRandomPhrase() {
     let index = Math.floor(Math.random() * this.phrases.length);
@@ -74,9 +84,5 @@ class Game {
     }
   }
 
-  startGame() {
-    overlayScreen.style.display = 'none';
-    this.activePhrase = this.getRandomPhrase();
-    addPhraseToDisplay(this.activePhrase);
-  }
+
 }

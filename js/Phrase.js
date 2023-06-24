@@ -12,9 +12,9 @@ class Phrase {
     this.phrase = phrase.toLowerCase();
   }
 
-  addPhraseToDisplay(phrase) {
-    for (let i = 0; i < phrase.length; i++) {
-      const letter = phrase[i];
+  addPhraseToDisplay() {
+    for (let i = 0; i < this.phrase.length; i++) {
+      const letter = this.phrase[i];
       const li = document.createElement('li');
 
       if (patternSpace.test(letter)) {
