@@ -8,9 +8,9 @@ let phrases = ['Seek truth always', 'Embrace the journey', 'Choose love daily', 
 
 const startGameButton = document.getElementById('btn__reset');
 
+phraseHunter = new Game(0, phrases);
 
 startGameButton.addEventListener('click', function() {
-  phraseHunter = new Game(0, phrases);
   phraseHunter.startGame();
 });
 

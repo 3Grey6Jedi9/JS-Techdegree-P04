@@ -3,8 +3,8 @@
  * Phrase.js */
 
 const discomposedPhrase = document.querySelector('#phrase ul');
-const patternSpace = /\s/g;
-const patternLetter = /[a-z]/g;
+const patternSpace = /\s/;
+const patternLetter = /[a-z]/;
 
 class Phrase {
   constructor(phrase) {
