@@ -32,29 +32,23 @@ class Game {
 
 
 handleInteraction(letter) {
-  keyButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-      const clickedButton = event.target;
-      keyButtons.forEach(btn => {
-        if (btn === clickedButton) {
-          btn.disabled = true;
-          const isMatch = this.activePhrase.includes(letter);
-          if (!isMatch) {
-            btn.classList.add('wrong');
-            this.removeLife();
-          } else {
-            btn.classList.add('chosen');
-            this.showMatchedLetter(letter);
-            this.checkForWin();
-            if (this.missed < 5) {
-              this.gameOver();
-            }
-          }
-        }
-      });
-    });
-  });
+  const clickedButton = event.target;
+  clickedButton.disabled = true;
+
+  const isMatch = this.activePhrase.includes(letter);
+  if (!isMatch) {
+    clickedButton.classList.add('wrong');
+    this.removeLife();
+  } else {
+    clickedButton.classList.add('chosen');
+    this.showMatchedLetter(letter);
+    this.checkForWin();
+    if (this.missed < 5) {
+      this.gameOver();
+    }
+  }
 }
+
 
 
 
@@ -77,7 +71,12 @@ handleInteraction(letter) {
 
 
   checkForWin() {
-    // Checks if the phrase has been guessed. So if it is revealed.
+
+    const phraseLetters = this.currentPhrase.phrase;
+    const revealedLetters = discomposedPhrase.getElementsByClassName('show letter');
+
+    return phraseLetters.length === revealedLetters.length;
+
   }
 
   gameOver() {
