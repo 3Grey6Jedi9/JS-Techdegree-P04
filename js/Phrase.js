@@ -24,7 +24,7 @@ class Phrase {
         li.className = 'character';
         li.textContent = letter;
       } else if (patternLetter.test(letter)) {
-        li.className = `hide letter ${letter}`;
+        li.className = 'hide';
         li.textContent = letter;
       }
 
@@ -46,6 +46,7 @@ class Phrase {
         const letter = li.textContent;
         if (this.checkLetter(letter, guess)) {
           li.classList.remove('hide');
+          li.classList.add('show');
         }
       }
     }

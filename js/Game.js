@@ -4,14 +4,15 @@
 
 
 const keyButtons = document.querySelectorAll('#qwerty .keyrow .key');
+let letterButton;
 const overlayScreen = document.getElementById('overlay');
 const gameOverMessage = document.getElementById('game-over-message');
 
 class Game {
-  constructor() {
-    this.missed = 0;
-    this.phrases = []; // Provide phrases array here
-    this.activePhrase = null;
+  constructor(missed = 0, phrases, activePhrase = null) {
+    this.missed = missed;
+    this.phrases = phrases;
+    this.activePhrase = activePhrase;
   }
 
   getRandomPhrase() {
@@ -20,18 +21,26 @@ class Game {
   }
 
   handleInteraction(letter) {
-    const clickedButton = event.target;
-    clickedButton.disabled = true;
-    const isMatch = this.activePhrase.includes(letter);
-    if (!isMatch) {
-      clickedButton.classList.add('wrong');
-      this.removeLife();
-    } else {
-      clickedButton.classList.add('chosen');
-      this.showMatchedLetter(letter);
-      this.checkForWin();
-      // If the player has won the game, call the gameOver() method.
-    }
+    keyButtons.forEach(button => {
+      button.addEventListener('click', function(event) {
+        const clickedButton = event.target;
+        keyButtons.forEach(btn => {
+          if (btn === clickedButton) {
+            btn.disabled = true;
+            const isMatch = this.activePhrase.includes(letter);
+            if (!isMatch) {
+              btn.classList.add('wrong');
+              this.removeLife();
+            } else {
+              btn.classList.add('chosen');
+              this.showMatchedLetter(this.activePhrase);
+              this.checkForWin();
+              // If the player has won the game, call the gameOver() method.
+            }
+          }
+        });
+      });
+    });
   }
 
   removeLife() {
@@ -43,16 +52,13 @@ class Game {
       missed.classList.add('lost');
     }
     this.missed++;
-    if (this.missed >= 4) {
+    if (this.missed === 5) {
       this.gameOver();
     }
   }
 
   checkForWin() {
-    const hiddenLetters = document.querySelectorAll('.hide');
-    if (hiddenLetters.length === 0) {
-      this.gameOver();
-    }
+    // Checks if the phrase has been guessed. So if it is revealed.
   }
 
   gameOver() {
@@ -63,4 +69,14 @@ class Game {
       overlayScreen.classList.add('lose');
     } else {
       gameOverMessage.textContent = 'Congratulations! You won!';
-      overlayScreen.classList.remove
+      overlayScreen.classList.remove('start');
+      overlayScreen.classList.add('win');
+    }
+  }
+
+  startGame() {
+    overlayScreen.style.display = 'none';
+    this.activePhrase = this.getRandomPhrase();
+    addPhraseToDisplay(this.activePhrase);
+  }
+}

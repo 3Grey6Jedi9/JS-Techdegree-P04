@@ -120,6 +120,13 @@ button {
 }
 
 
+.hide {
+  background-color: var(--color-neutral-light);
+  color: transparent;
+}
+
+
+
 
 
 .show {
