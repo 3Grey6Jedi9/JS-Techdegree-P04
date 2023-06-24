@@ -24,7 +24,7 @@ class Phrase {
         li.className = 'character';
         li.textContent = letter;
       } else if (patternLetter.test(letter)) {
-        li.className = 'hide';
+        li.className = 'hide letter';
         li.textContent = letter;
       }
 
