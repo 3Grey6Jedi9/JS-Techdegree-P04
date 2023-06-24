@@ -41,9 +41,9 @@ handleInteraction(letter) {
     this.removeLife();
   } else {
     clickedButton.classList.add('chosen');
-    this.showMatchedLetter(letter);
+    this.currentPhrase.showMatchedLetter(letter);
     this.checkForWin();
-    if (this.missed < 5) {
+    if (this.missed === 5) {
       this.gameOver();
     }
   }
