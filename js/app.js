@@ -17,10 +17,10 @@ startGameButton.addEventListener('click', function() {
 keyButtons.forEach(button => {
   button.addEventListener('click', function(event) {
     if (event.target.tagName === 'BUTTON') {
-      phraseHunter.handleInteraction();
+      const clickedLetter = event.target.textContent;
+      phraseHunter.handleInteraction(clickedLetter);
     }
   });
 });
-
 
 
