@@ -3,9 +3,9 @@
  * Phrase.js */
 
 const discomposedPhrase = document.querySelector('#phrase ul');
-const patterSpace = /\s/g;
-const patterRest = /[^a-z\s]/g;
-const patterLetter = /[a-z]/g;
+const patternSpace = /\s/g;
+const patternRest = /[^a-z\s]/g;
+const patternLetter = /[a-z]/g;
 
 class Phrase {
   constructor(phrase) {
@@ -17,13 +17,13 @@ class Phrase {
       const letter = phrase[i];
       const li = document.createElement('li');
 
-      if (patterSpace.test(letter)) {
+      if (patternSpace.test(letter)) {
         li.className = 'space';
         li.textContent = ' ';
-      } else if (patterRest.test(letter)) {
+      } else if (patternRest.test(letter)) {
         li.className = 'character';
         li.textContent = letter;
-      } else if (patterLetter.test(letter)) {
+      } else if (patternLetter.test(letter)) {
         li.className = `hide letter ${letter}`;
         li.textContent = letter;
       }
