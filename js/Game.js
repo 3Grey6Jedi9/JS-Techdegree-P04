@@ -30,28 +30,34 @@ class Game {
     return this.phrases[index];
   }
 
-  handleInteraction(letter) {
-    keyButtons.forEach(button => {
-      button.addEventListener('click', function(event) {
-        const clickedButton = event.target;
-        keyButtons.forEach(btn => {
-          if (btn === clickedButton) {
-            btn.disabled = true;
-            const isMatch = this.activePhrase.includes(letter);
-            if (!isMatch) {
-              btn.classList.add('wrong');
-              this.removeLife();
-            } else {
-              btn.classList.add('chosen');
-              this.showMatchedLetter(this.activePhrase);
-              this.checkForWin();
-              // If the player has won the game, call the gameOver() method.
+
+handleInteraction(letter) {
+  keyButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const clickedButton = event.target;
+      keyButtons.forEach(btn => {
+        if (btn === clickedButton) {
+          btn.disabled = true;
+          const isMatch = this.activePhrase.includes(letter);
+          if (!isMatch) {
+            btn.classList.add('wrong');
+            this.removeLife();
+          } else {
+            btn.classList.add('chosen');
+            this.showMatchedLetter(letter);
+            this.checkForWin();
+            if (this.missed < 5) {
+              this.gameOver();
             }
           }
-        });
+        }
       });
     });
-  }
+  });
+}
+
+
+
 
   removeLife() {
     const heartImages = document.querySelectorAll('#scoreboard .tries img');
@@ -66,6 +72,9 @@ class Game {
       this.gameOver();
     }
   }
+
+
+
 
   checkForWin() {
     // Checks if the phrase has been guessed. So if it is revealed.
