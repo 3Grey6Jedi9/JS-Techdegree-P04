@@ -31,7 +31,7 @@ class Phrase {
 
 
   checkLetter(letter, guess) {
-    return letter === guess;
+    return letter.toLowerCase() === guess.toLowerCase();
   }
 
 

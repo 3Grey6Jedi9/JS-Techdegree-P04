@@ -38,7 +38,7 @@ handleInteraction(event, clickedLetter) {
   const clickedButton = event.target;
   clickedButton.disabled = true;
 
-  const isMatch = this.activePhrase.includes(clickedLetter);
+  const isMatch = this.currentPhrase.phrase.includes(clickedLetter);
   if (!isMatch) {
     clickedButton.classList.add('wrong');
     this.removeLife();
