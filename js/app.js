@@ -16,14 +16,34 @@
     phraseHunter.startGame();
   });
 
+
+
+  document.addEventListener('keydown', function (event) {
+  if (event.key >= 'a' && event.key <= 'z') {
+    const clickedLetter = event.key.toLowerCase();
+    const clickedButton = Array.from(keyButtons).find(button => button.textContent === clickedLetter);
+    if (clickedButton) {
+      phraseHunter.handleInteraction(clickedLetter);
+    }
+  }
+});
+
+
+
   keyButtons.forEach(button => {
     button.addEventListener('click', function (event) {
       if (event.target.tagName === 'BUTTON') {
         const clickedLetter = event.target.textContent;
-        phraseHunter.handleInteraction(event,clickedLetter);
+        phraseHunter.handleInteraction(clickedLetter);
       }
     });
+
+
   });
+
+
+
+
 
 
 

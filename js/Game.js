@@ -34,8 +34,15 @@ class Game {
   }
 
 
-handleInteraction(event, clickedLetter) {
-  const clickedButton = event.target;
+handleInteraction(clickedLetter) {
+  let clickedButton = null;
+  keyButtons.forEach(button=>{
+
+    if (button.textContent === clickedLetter) {
+    clickedButton = button;
+  }
+
+  });
   clickedButton.disabled = true;
 
   const isMatch = this.currentPhrase.phrase.includes(clickedLetter);
@@ -45,7 +52,7 @@ handleInteraction(event, clickedLetter) {
   } else {
     clickedButton.classList.add('chosen');
     this.currentPhrase.showMatchedLetter(clickedLetter);
-    console.log(this.checkForWin()) // To delete later
+
     if(this.checkForWin()){
 
       this.gameOver();
@@ -105,6 +112,15 @@ handleInteraction(event, clickedLetter) {
       li.remove();
 
     })
+
+    keyButtons.forEach(key=>{ // Select carefully the class is different now
+
+      key.disable = false;
+      key.className = 'key';
+
+
+    })
+
 
   }
 
