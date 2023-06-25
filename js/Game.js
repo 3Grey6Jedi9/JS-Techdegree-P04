@@ -3,6 +3,9 @@
  * Game.js */
 
 
+
+
+
 const keyButtons = document.querySelectorAll('#qwerty .keyrow .key');
 let letterButton;
 const overlayScreen = document.getElementById('overlay');
@@ -31,21 +34,23 @@ class Game {
   }
 
 
-handleInteraction(letter) {
+handleInteraction(event, clickedLetter) {
   const clickedButton = event.target;
   clickedButton.disabled = true;
 
-  const isMatch = this.activePhrase.includes(letter);
+  const isMatch = this.activePhrase.includes(clickedLetter);
   if (!isMatch) {
     clickedButton.classList.add('wrong');
     this.removeLife();
   } else {
     clickedButton.classList.add('chosen');
-    this.currentPhrase.showMatchedLetter(letter);
-    this.checkForWin();
-    if (this.missed === 5) {
+    this.currentPhrase.showMatchedLetter(clickedLetter);
+    if(this.checkForWin()){
+
       this.gameOver();
+
     }
+
   }
 }
 

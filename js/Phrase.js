@@ -34,6 +34,9 @@ class Phrase {
     return letter === guess;
   }
 
+
+
+
   showMatchedLetter(guess) {
     const lis = discomposedPhrase.children;
     for (let i = 0; i < lis.length; i++) {

@@ -3,25 +3,27 @@
  * app.js */
 
 
-let phrases = ['Seek truth always', 'Embrace the journey', 'Choose love daily', 'Find inner peace', 'Live with purpose']
 
 
-const startGameButton = document.getElementById('btn__reset');
+  let phrases = ['Seek truth always', 'Embrace the journey', 'Choose love daily', 'Find inner peace', 'Live with purpose']
 
-phraseHunter = new Game(0, phrases);
 
-startGameButton.addEventListener('click', function() {
-  phraseHunter.startGame();
-});
+  const startGameButton = document.getElementById('btn__reset');
 
-keyButtons.forEach(button => {
-  button.addEventListener('click', function(event) {
-    if (event.target.tagName === 'BUTTON') {
-      const clickedLetter = event.target.textContent;
-      phraseHunter.handleInteraction(clickedLetter);
-    }
+  phraseHunter = new Game(0, phrases);
+
+  startGameButton.addEventListener('click', function (event) {
+    phraseHunter.startGame();
   });
-});
+
+  keyButtons.forEach(button => {
+    button.addEventListener('click', function (event) {
+      if (event.target.tagName === 'BUTTON') {
+        const clickedLetter = event.target.textContent;
+        phraseHunter.handleInteraction(event,clickedLetter);
+      }
+    });
+  });
 
 
 
