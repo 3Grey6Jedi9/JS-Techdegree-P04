@@ -98,6 +98,14 @@ handleInteraction(event, clickedLetter) {
       overlayScreen.classList.remove('start');
       overlayScreen.classList.add('win');
     }
+
+    const allPhraseLetters = discomposedPhrase.querySelectorAll('li');
+    allPhraseLetters.forEach(li => {
+
+      li.remove();
+
+    })
+
   }
 
 
