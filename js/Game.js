@@ -60,10 +60,12 @@ handleInteraction(event, clickedLetter) {
 
   removeLife() { // I am targeting the img element anD I need to change the li class so I need to target the li element too.
     const heartImages = document.querySelectorAll('#scoreboard .tries img');
-    console.log(heartImages.length) // To delete later
+    const heart = document.querySelectorAll('#scoreboard .tries');
+
     if (heartImages.length > 0) {
-      heartImages[heartImages.length - 1].className = 'lost'
       heartImages[heartImages.length - 1].src = 'images/lostHeart.png';
+      heart[heart.length-1].classList.replace('tries', 'lost')
+
     }
     this.missed++;
     if (this.missed === 5) {
