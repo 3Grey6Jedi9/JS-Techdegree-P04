@@ -60,11 +60,11 @@ handleInteraction(event, clickedLetter) {
 
   removeLife() {
     const heartImages = document.querySelectorAll('#scoreboard .tries img');
-    const missed = document.querySelector('#scoreboard .tries:last-child');
+    console.log(heartImages.length) // To delete later
     if (heartImages.length > 0) {
+      heartImages[heartImages.length - 1].classList.remove('tries');
+      heartImages[heartImages.length - 1].classList.add('lost');
       heartImages[heartImages.length - 1].src = 'images/lostHeart.png';
-      missed.classList.remove('tries');
-      missed.classList.add('lost');
     }
     this.missed++;
     if (this.missed === 5) {
