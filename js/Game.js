@@ -45,6 +45,7 @@ handleInteraction(event, clickedLetter) {
   } else {
     clickedButton.classList.add('chosen');
     this.currentPhrase.showMatchedLetter(clickedLetter);
+    console.log(this.checkForWin()) // To delete later
     if(this.checkForWin()){
 
       this.gameOver();
@@ -79,9 +80,10 @@ handleInteraction(event, clickedLetter) {
   checkForWin() {
 
     const phraseLetters = this.currentPhrase.phrase;
-    const revealedLetters = discomposedPhrase.getElementsByClassName('show letter');
+    const revealedLetters = discomposedPhrase.querySelectorAll('.show');
+    const numberSpaces = discomposedPhrase.querySelectorAll('.space');
 
-    return phraseLetters.length === revealedLetters.length;
+    return phraseLetters.length === revealedLetters.length + numberSpaces.length;
 
   }
 
