@@ -31,13 +31,11 @@
     }
   }
 
-  if (event.key === 'Enter') {
+  if (event.key === 'Enter' && ulElement.childElementCount === 0) {
     phraseHunter = new Game();
-    if (ulElement.childElementCount === 0) {
        phraseHunter.startGame();
 }
 
-  }
 });
 
 
