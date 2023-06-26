@@ -1,21 +1,33 @@
 # JS-Techdegree-P04
  My fourth JavaScript Project
 
-            *** EXTRA CREDIT 2: MAKING THE APP PERSONAL ***
+
+
+______________________________________*** EXTRA CREDIT 2: MAKING THE APP PERSONAL ***__________________________________
 
 
 1) I wanted to be able to execute the START GAME button by pressing ENTER.
 
-So in the app.js I added an if statement inside the eventlistener used for the keyboard so I will catch those ENTER calls. 
+So in the app.js I added an 'if statement' inside the eventlistener used for the keyboard,
+so that I will catch those ENTER calls. 
 
 
-2) .wrong {
-  background: deeppink;  // change
+2) Changing the color of the wrong guesses
+
+
+**.wrong {
+  background: deeppink;  
   color: #FFFFFF;
-}
+}**
 
-3) button {
-  margin: 6px;
+I decided that I wanted pick instead of orange. 
+
+
+
+3) Changing the background color of the key buttons to lightseagreenbutton {
+
+
+**margin: 6px;
   border: 1px solid transparent;
   padding: .5rem 1rem;
   color: white;
@@ -24,10 +36,12 @@ So in the app.js I added an if statement inside the eventlistener used for the k
   border-radius: 5px;
   transition: var(--transition);
   cursor: pointer;
-}
+}**
 
 
-4) .letter {
+4) Changing the background color of the letter and hide classes
+
+**.letter {
   font-size: var(--font-size-medium);
   height: 65px;
   width: 65px;
@@ -36,14 +50,14 @@ So in the app.js I added an if statement inside the eventlistener used for the k
   color: transparent;
   background: lightsteelblue;
   border-radius: 5px;
-} 
+}**
 
-.hide {
+
+
+**.hide {
   background-color: lightsteelblue;
   color: transparent;
-}
+}**
 
-
-5) Changing the hearts' color to red 
 
 
