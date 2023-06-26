@@ -4,17 +4,14 @@
 
 
 
-
-  let phrases = ['Seek truth always', 'Embrace the journey', 'Choose love daily', 'Find inner peace', 'Live with purpose']
-
-
   const startGameButton = document.getElementById('btn__reset');
 
-  phraseHunter = new Game(0, phrases);
+
 
   // Starting the game by clicking the button
 
   startGameButton.addEventListener('click', function (event) {
+    phraseHunter = new Game(0);
     phraseHunter.startGame();
   });
 
@@ -23,6 +20,7 @@
   // Playing the game with the keyboard
 
   document.addEventListener('keydown', function (event) {
+
   if (event.key >= 'a' && event.key <= 'z') {
     const clickedLetter = event.key.toLowerCase();
     const clickedButton = Array.from(keyButtons).find(button => button.textContent === clickedLetter);
@@ -32,7 +30,7 @@
   }
 
   if (event.key === 'Enter') {
-
+    phraseHunter = new Game(0);
     phraseHunter.startGame();
 
   }

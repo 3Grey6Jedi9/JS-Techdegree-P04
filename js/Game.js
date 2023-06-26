@@ -18,9 +18,13 @@ const heartImages = document.querySelectorAll('#scoreboard ol li');
 
 
 class Game {
-  constructor(missed = 0, phrases, activePhrase = null) {
+  constructor(missed = 0, activePhrase = null) {
     this.missed = missed;
-    this.phrases = phrases;
+    this.phrases = [new Phrase('Seek truth always'),
+    new Phrase('Embrace the journey'),
+    new Phrase('Choose love daily'),
+    new Phrase('Find inner peace'),
+    new Phrase('Live with purpose')];
     this.activePhrase = activePhrase;
   }
 
@@ -30,7 +34,7 @@ class Game {
     overlayScreen.style.display = 'none';
     overlayScreen.className = 'start';
     this.activePhrase = this.getRandomPhrase();
-    this.currentPhrase = new Phrase(this.activePhrase);
+    this.currentPhrase = this.activePhrase;
     this.currentPhrase.addPhraseToDisplay();
   }
 
