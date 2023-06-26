@@ -11,7 +11,7 @@ let letterButton;
 const overlayScreen = document.getElementById('overlay');
 const gameOverMessage = document.getElementById('game-over-message');
 const letterButtons = document.querySelectorAll('#qwerty .keyrow button'); // Buttons that are children of the class .keyrow
-
+const heartImages = document.querySelectorAll('#scoreboard ol li');
 
 
 class Game {
@@ -123,7 +123,17 @@ handleInteraction(clickedLetter) {
     })
 
 
+    heartImages.forEach(image=>{
+
+      image.className = 'tries';
+
+      const heartPicture = image.querySelector('img');
+      heartPicture.src = 'images/liveHeart.png';
+
+    })
+        this.missed = 0;
   }
+
 
 
 }
