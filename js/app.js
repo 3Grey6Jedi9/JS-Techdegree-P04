@@ -18,7 +18,8 @@
 
 
 
-  document.addEventListener('keydown', function (event) { // Only able to press once
+
+  document.addEventListener('keydown', function (event) {
   if (event.key >= 'a' && event.key <= 'z') {
     const clickedLetter = event.key.toLowerCase();
     const clickedButton = Array.from(keyButtons).find(button => button.textContent === clickedLetter);
@@ -26,7 +27,15 @@
       phraseHunter.handleInteraction(clickedLetter);
     }
   }
+
+  if (event.key === 'Enter') {
+
+    phraseHunter.startGame();
+
+  }
 });
+
+
 
 
 
