@@ -31,8 +31,9 @@
 
   if (event.key === 'Enter') {
     phraseHunter = new Game();
-    phraseHunter.startGame();
-
+    if (phraseHunter.activePhrase === null) {
+      phraseHunter.startGame();
+    }
   }
 });
 
