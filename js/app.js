@@ -18,11 +18,11 @@
 
 
 
-  document.addEventListener('keyup', function (event) { // Only able to press once
+  document.addEventListener('keydown', function (event) { // Only able to press once
   if (event.key >= 'a' && event.key <= 'z') {
     const clickedLetter = event.key.toLowerCase();
     const clickedButton = Array.from(keyButtons).find(button => button.textContent === clickedLetter);
-    if (clickedButton) {
+    if (clickedButton && !clickedButton.disabled) {
       phraseHunter.handleInteraction(clickedLetter);
     }
   }
