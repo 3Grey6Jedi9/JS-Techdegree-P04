@@ -50,15 +50,14 @@ button {
   margin: 6px;
   border: 1px solid transparent;
   padding: .5rem 1rem;
-  color: var(--color-keys);
+  color: white;
   font-size: var(--font-size-medium);
-  background-color: var(--color-keys-light);
+  background-color: lightseagreen;
   border-radius: 5px;
-  -webkit-transition: var(--transition);
-  -o-transition: var(--transition);
   transition: var(--transition);
   cursor: pointer;
 }
+
 
 #btn__reset {
 	width: 200px;
@@ -86,8 +85,10 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: rosybrown;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 
 
 /* Phrase */
@@ -99,7 +100,7 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  background: var(--color-neutral-light);
+  background: lightsteelblue;
   border-radius: 5px;
 }
 
@@ -111,7 +112,7 @@ button {
 
 
 .hide {
-  background-color: var(--color-neutral-light);
+  background-color: lightsteelblue;
   color: transparent;
 }
 
@@ -148,7 +149,7 @@ button {
 }
 
 .wrong {
-  background: #f7a964;
+  background: deeppink;
   color: #FFFFFF;
 }
 
@@ -212,3 +213,8 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+
+
+
+
