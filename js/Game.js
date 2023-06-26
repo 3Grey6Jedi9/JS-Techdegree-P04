@@ -23,6 +23,7 @@ class Game {
 
   startGame() {
     overlayScreen.style.display = 'none';
+    overlayScreen.className = 'start';
     this.activePhrase = this.getRandomPhrase();
     this.currentPhrase = new Phrase(this.activePhrase);
     this.currentPhrase.addPhraseToDisplay();
