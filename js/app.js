@@ -5,6 +5,8 @@
 
 
   const startGameButton = document.getElementById('btn__reset');
+  const ulElement = document.querySelector('#phrase ul');
+
 
 
 
@@ -31,9 +33,10 @@
 
   if (event.key === 'Enter') {
     phraseHunter = new Game();
-    if (phraseHunter.activePhrase === null) {
-      phraseHunter.startGame();
-    }
+    if (ulElement.childElementCount === 0) {
+       phraseHunter.startGame();
+}
+
   }
 });
 
