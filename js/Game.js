@@ -6,10 +6,11 @@
 
 
 
-const keyButtons = document.querySelectorAll('#qwerty .keyrow .key');
+const keyButtons = document.querySelectorAll('#qwerty .keyrow .key'); // Button that has the class key
 let letterButton;
 const overlayScreen = document.getElementById('overlay');
 const gameOverMessage = document.getElementById('game-over-message');
+const letterButtons = document.querySelectorAll('#qwerty .keyrow button'); // Buttons that are children of the class .keyrow
 
 
 
@@ -113,9 +114,9 @@ handleInteraction(clickedLetter) {
 
     })
 
-    keyButtons.forEach(key=>{ // Select carefully the class is different now
+    letterButtons.forEach(key=>{
 
-      key.disable = false;
+      key.disabled = false;
       key.className = 'key';
 
 
