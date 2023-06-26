@@ -11,7 +11,7 @@
   // Starting the game by clicking the button
 
   startGameButton.addEventListener('click', function (event) {
-    phraseHunter = new Game(0);
+    phraseHunter = new Game();
     phraseHunter.startGame();
   });
 
@@ -30,7 +30,7 @@
   }
 
   if (event.key === 'Enter') {
-    phraseHunter = new Game(0);
+    phraseHunter = new Game();
     phraseHunter.startGame();
 
   }
