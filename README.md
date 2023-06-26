@@ -69,7 +69,7 @@ I decided that I wanted pick instead of orange.
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }**
 
-I've changed the color and I've added some shadows. 
+I've changed the color. And I've added some shadows. 
 
 
 

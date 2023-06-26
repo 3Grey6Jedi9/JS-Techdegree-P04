@@ -14,6 +14,9 @@ const letterButtons = document.querySelectorAll('#qwerty .keyrow button'); // Bu
 const heartImages = document.querySelectorAll('#scoreboard ol li');
 
 
+// Defining the Game class
+
+
 class Game {
   constructor(missed = 0, phrases, activePhrase = null) {
     this.missed = missed;
@@ -21,7 +24,9 @@ class Game {
     this.activePhrase = activePhrase;
   }
 
-  startGame() {
+
+
+  startGame() { // This method starts the game by loading a new phrase and creating an instance of the Phrase class
     overlayScreen.style.display = 'none';
     overlayScreen.className = 'start';
     this.activePhrase = this.getRandomPhrase();
@@ -30,13 +35,13 @@ class Game {
   }
 
 
-  getRandomPhrase() {
+  getRandomPhrase() { // This method gives me a random phrase to play with
     let index = Math.floor(Math.random() * this.phrases.length);
     return this.phrases[index];
   }
 
 
-handleInteraction(clickedLetter) {
+handleInteraction(clickedLetter) { // This method is maybe the most important since it manages the logic of the game
   let clickedButton = null;
   keyButtons.forEach(button=>{
 
@@ -68,7 +73,7 @@ handleInteraction(clickedLetter) {
 
 
 
-  removeLife() {
+  removeLife() { // This method works when I enter a wrong letter
     const heartImages = document.querySelectorAll('#scoreboard .tries img');
     const heart = document.querySelectorAll('#scoreboard .tries');
 
@@ -86,7 +91,7 @@ handleInteraction(clickedLetter) {
 
 
 
-  checkForWin() {
+  checkForWin() { // This method works when I enter a correct letter
 
     const phraseLetters = this.currentPhrase.phrase;
     const revealedLetters = discomposedPhrase.querySelectorAll('.show');
@@ -96,7 +101,7 @@ handleInteraction(clickedLetter) {
 
   }
 
-  gameOver() {
+  gameOver() { // This method manage the game when is over
     overlayScreen.style.display = 'block';
     if (this.missed === 5) {
       gameOverMessage.textContent = 'You lost! Try again.';
@@ -134,6 +139,8 @@ handleInteraction(clickedLetter) {
     })
         this.missed = 0;
   }
+
+
 
 
 

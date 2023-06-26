@@ -12,12 +12,15 @@
 
   phraseHunter = new Game(0, phrases);
 
+  // Starting the game by clicking the button
+
   startGameButton.addEventListener('click', function (event) {
     phraseHunter.startGame();
   });
 
 
 
+  // Playing the game with the keyboard
 
   document.addEventListener('keydown', function (event) {
   if (event.key >= 'a' && event.key <= 'z') {
@@ -37,6 +40,7 @@
 
 
 
+  // Playing the game by clicking
 
 
   keyButtons.forEach(button => {
